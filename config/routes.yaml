@@ -1,3 +1,23 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+# #index:
+# #    path: /
+# #    controller: App\Controller\DefaultController::index
+# # config/routes.yaml
+
+# home:
+#     path: /
+#     controller: App\Controller\HomeController::index
+# # config/routes.yaml
+
+# service_show:
+#     path: '/service/{name}'
+#     controller: App\Controller\ServiceController::showService
+
+# go_to_index:
+#     path: '/go-to-index'
+#     controller: App\Controller\HomeController::index
+
+# author:
+#     path: 'author/' 
+#    controller: App\Controller\AuthorController::index
+
+

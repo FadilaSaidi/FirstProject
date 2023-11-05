@@ -1,0 +1,6 @@
+{% for a in vote %}
+
+<td>{{ a.id }}</td>
+            <td>{{ a.dateVote|date("m/d/Y") }}</td>
+            <td>{{ a.note }}</td>
+{% endfor%}

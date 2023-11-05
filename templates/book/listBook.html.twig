@@ -1,0 +1,37 @@
+
+
+
+</table>
+
+<table border="1">
+
+<form action="{{path('book_search')}}"> 
+	<p> Ref  <input type="number" placeholder="search" name="ref" id="ref"> </p>
+	<input type="submit" value="Search"> 
+	</form>
+
+
+<tr>
+    <th>reference</th>
+    <th>titre</th>
+    <th>publicationDate</th>
+    <th>category</th>
+   
+
+  
+</tr>
+
+      <tr>  {% for a in books %}</tr>
+        <td>{{ a.ref }}</td>
+        <td> {{ a.title }}</td>
+        <td> {{ a.publicationDate|date("m/d/Y") }}</td>
+        <td> {{a.category}}</td>
+     
+
+
+    {% endfor %}
+
+</table>
+
+
+

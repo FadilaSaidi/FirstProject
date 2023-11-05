@@ -1,0 +1,36 @@
+{# templates/author/list_authors.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}List Authors{% endblock %}
+{% block body %}
+    <style>
+        table.double-border {
+            border-collapse: collapse;
+        }
+        table.double-border th, table.double-border td {
+            border: 2px double #000;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+    <center>
+
+    <h1>List Authors</h1>
+    
+    <table class="double-border">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.getUsername() }}</td>
+                    <td>{{ author.getEmail() }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </center>
+{% endblock %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Add a border to the table */
+        table {
+            border: 2px black solid; /* 2px black solid border */
+            border-collapse: collapse; /* Collapse the border so there are no spaces between cells */
+            width: 100%; /* Set the table width to 100% of its container */
+            font-family: Arial, sans-serif; /* Change the font family */
+        }
+
+        /* Style for table headers */
+        th {
+            border: 2px black solid;
+            background-color: #86c786; /* Gray background color for headers */
+            color: white; /* Text color */
+            padding: 10px; /* Add padding for better spacing */
+        }
+
+        /* Style for table data cells */
+        td {
+            border: 2px black solid;
+            padding: 8px; /* Add padding for better spacing */
+            text-align: center; /* Center-align text in cells */
+        }
+    </style>
+    <title>List of Authors</title>
+</head>
+<body>
+{% set sum = 0 %}
+{% if authors |length == 0 %}
+    <h5> table vide</h5>
+{% else %}
+
+
+    <table >
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Number Book</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for author in authors %}
+            <tr>
+                <td>{{ author.id }}</td>
+                <td>{{ author.username |upper}}</td>
+                <td>{{ author.email }}</td>
+                <td>{{ author.nbBooks }}</td>
+                
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+Length of table :{{ authors |length}} <br>
+Total number of books{{ sum}}
+</body>
+</html>

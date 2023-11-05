@@ -1,0 +1,4 @@
+{% for a in authors %}
+{{ a.username}} - {{ a.email }} <br>
+<a href="{{path('author_listDB',{id:a.id})}}">Details</a>
+{% endfor%}

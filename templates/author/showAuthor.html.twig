@@ -1,0 +1,11 @@
+{# templates/author/showAuthor.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Détails de l'auteur</h1>
+    <p>Nom : {{ author.username }}</p>
+    <p>Email : {{ author.email }}</p>
+    <p>Nombre de livres : {{ author.nb_books }}</p>
+    <img src="{{ asset(author.picture) }}" alt="{{ author.username }}"width="200" />
+{% endblock %}

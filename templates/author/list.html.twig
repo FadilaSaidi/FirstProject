@@ -1,0 +1,45 @@
+Le nombre d'auteurs est {{ authors | length }}.
+<br>
+{% set nb = 0 %}
+{% for a in authors %}
+    {% set nb = nb + a.nb_books %}
+{% endfor %}
+Total books = {{ nb }}
+<br>
+
+{% if authors is defined %}
+    {% if authors is empty %}
+        Aucun auteur trouvé.
+    {% else %}
+        <table style="border-collapse: collapse; width: 100%;">
+            <tr>
+                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">ID</th>
+                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Username</th>
+                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Email</th>
+                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Nombre de Livres</th>
+                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Image</th>
+            </tr>
+            {% for a in authors | reverse %}
+                <tr>
+                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ a.id }}</td>
+                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ a.username | lower | upper | capitalize }}</td>
+                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ a.email }}</td>
+                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ a.nb_books }}</td>
+                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;"><img src="{{ asset(a.picture) }}" alt="Image de l'auteur" width="100"></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% else %}
+    La liste des auteurs n'est pas définie.
+{% endif %}
+
+<h1>Liste des auteurs</h1>
+<ul>
+    {% for author in authors %}
+        <li>
+            <a href="{{ path('author_details', {'id': author.id}) }}">Détails</a>
+            {{ author.username | upper }}
+        </li>
+    {% endfor %}
+</ul>

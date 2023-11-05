@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JoueurController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Liste des joueurs : </h1>
+    <table border=1 >
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Equipe</th>
+            <th>Actions</th>
+            <th>Ajout d'un joueur</th>
+            <th>Détail de vote </th>
+            
+            
+        </tr>
+        {% for j in joueur  %}
+        <tr>
+            <td>{{ j.id }}</td>
+            <td>{{ j.nom }}</td>
+            <td>{{ j.prenom }}</td>
+            <td>{{ j.equipe  }}</td>
+           
+            
+            <td>
+                <a href="{{ path('joueur_update', { 'id': j.id } ) }}" >Edit</a>
+            </td>
+            <td><a href="{{ path('joueur_add' ) }}" >Add</a></td>
+            <td><a href="{{ path('vote_listD',{ 'id': j.id })}}" >Detail Vote</a>
+            
+
+            
+        </tr>
+        {% endfor %}
+        
+        
+
+    </table>
+</div>
+{% endblock %}
